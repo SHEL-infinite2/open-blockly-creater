@@ -399,7 +399,11 @@ function copyToClip(content, message) {
 }
 let desc = document.querySelector('#block-desc').value
 let blockCode = document.querySelector('#languagePre').innerText
-copyToClip(`我要投稿：\n积木核心：${btoa(encodeURI(blockCode))}\n\n\n描述:${desc}`)
+let encoded = '';
+for(i of btoa(encodeURI(blockCode))){
+  encoded+=i+' '
+}
+copyToClip(`我要投稿：\n描述:${desc}\n积木核心：${encoded}\n\n\n`)
 ">
                     <span>复制回帖内容</span>
                 </button>
