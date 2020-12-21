@@ -45,7 +45,7 @@
   </script>
 </head>
 <body>
-  <h1 style="margin: 0">Box3积木创作大赛v0.1.4
+  <h1 style="margin: 0">Box3积木创作大赛v0.1.5
     <button id="helpButton" style="display: none" title="View documentation in new window.">
       <span>Help</span>
     </button>
@@ -382,6 +382,7 @@
               <pre id="languagePre" class="prettyprint lang-js" style="display: none"></pre>
               <textarea id="languageTA"></textarea>
                 <textarea id="block-desc" placeholder="在此处输入积木的描述" style="height:200px;resize: none;width: 500px"></textarea><br/>
+                <input placeholder="输入你的名字" id="block-writer">
                 <button onclick="
 
 function copyToClip(content, message) {
@@ -398,7 +399,8 @@ function copyToClip(content, message) {
                 }
 }
 let desc = document.querySelector('#block-desc').value
-let blockCode = document.querySelector('#languagePre').innerText
+let writer = document.querySelector('#block-writer').value
+let blockCode = '//'+writer+'//\n'+document.querySelector('#languagePre').innerText
 let encoded = '';
 for(i of btoa(encodeURI(blockCode))){
   encoded+=i+' '
